@@ -1,0 +1,47 @@
+<!-- Footer
+============================================= -->
+<footer id="footer" class="dark">
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+
+        <div class="container clearfix">
+
+            <div class="col_half">
+               {{ settings.copyright_text }} <br>
+            </div>
+
+            <div class="col_half col_last tright">
+                <div class="fright clearfix">
+                    @if( settings.facebook_handle )
+                    <a href="https://facebook.com/{{ settings.facebook_handle }}" 
+                        class="social-icon si-small si-borderless si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+                    @endif
+                    @if( settings.twitter_handle )
+                    <a href="https://twitter.com/{{ settings.twitter_handle }}" 
+                        class="social-icon si-small si-borderless si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+                    @endif 
+                    @if( settings.github_handle )
+                    <a href="https://github.com/{{ settings.github_handle }}" 
+                        class="social-icon si-small si-borderless si-github">
+                        <i class="icon-github"></i>
+                        <i class="icon-github"></i>
+                    </a>
+                    @endif
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+        </div>
+
+    </div><!-- #copyrights end -->
+
+</footer><!-- #footer end -->

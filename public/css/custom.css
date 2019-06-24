@@ -1,0 +1,16 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Hanlding Updates
+-----------------------------------------------------------------*/
+
+#logo h2{
+	font-size: 40px;
+	margin-top: 15px;
+	margin-bottom: 0;
+}
+
+#content .commentlist li{
+	margin-left: 0;
+}

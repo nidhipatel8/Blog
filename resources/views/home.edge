@@ -1,0 +1,49 @@
+@layout( 'master' )
+
+@section( 'content' )
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <a class="button button-full button-purple center tright header-stick bottommargin-lg">
+            <div class="container clearfix">
+                Call To Action Message <i class="icon-caret-right" style="top:4px;"></i>
+            </div>
+        </a>
+
+
+        <div class="container clearfix">
+            
+            <!-- Posts
+            ============================================= -->
+            <div id="posts" class="post-grid grid-container grid-2 clearfix" data-layout="fitRows">
+
+                @each( post in posts.data )
+                    @include( 'partials/post-excerpt' )
+                @endeach
+
+            </div><!-- #posts end -->
+
+            <!-- Pagination
+            ============================================= -->
+            <ul class="pager nomargin">
+                @if( posts.page < posts.lastPage )
+                    <li class="previous">
+                        <a href="/?p={{ posts.page + 1 }}">&larr; {{ messages.older }}</a>
+                    </li>
+                @endif
+                @if( posts.page > 1 )
+                    <li class="next">
+                        <a href="/?p={{ posts.page - 1 }}">{{ messages.newer }} &rarr;</a>
+                    </li>
+                @endif
+            </ul><!-- .pager end -->
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+@endsection

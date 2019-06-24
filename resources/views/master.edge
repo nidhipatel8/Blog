@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Stylesheets
+	============================================= -->
+	{{ style( 'http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic' ) }}
+	{{ style( 'css/bootstrap' ) }}
+	{{ style( 'css/style' ) }}
+	{{ style( 'css/swiper' ) }}
+	{{ style( 'css/dark' ) }}
+	{{ style( 'css/font-icons' ) }}
+	{{ style( 'css/animate' ) }}
+	{{ style( 'css/magnific-popup' ) }}
+	{{ style( 'css/custom' ) }}
+	{{ style( 'css/responsive' ) }}
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Document Title
+	============================================= -->
+	<title>Home</title>
+
+</head>
+
+<body class="stretched no-transition">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		@include( 'partials/header' )
+
+        @!section( 'content' )
+
+		@include( 'partials/footer' )
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	{{ script( 'js/jquery' ) }}
+	{{ script( 'js/plugins' ) }}
+	{{ script( 'js/functions' ) }}
+
+	@!section( 'scripts' )
+</body>
+</html>

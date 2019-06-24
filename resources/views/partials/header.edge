@@ -1,0 +1,81 @@
+<!-- Header
+============================================= -->
+<header id="header" class="no-sticky dark">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="/" class="standard-logo">
+                    <h2>{{ settings.site_name }}</h2>
+                </a>
+            </div><!-- #logo end -->
+
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="sub-title">
+
+                <ul>
+                    @each( category in categories )
+                    <li>
+                        <a href="{{ route('category', { id: category.id } )">
+                            <div>{{ category.name }}</div>
+                            <span>{{ category.subtitle }} </span>
+                        </a>
+                    </li>
+                    @endeach
+                    
+                    @loggedIn
+                    <li class="sub-menu">
+                        <a href="#"><div>My Account</div><span>Your Info</span></a>
+                        <ul>
+                            <li><a href="{{ route( 'profile', { username: auth.user.username }) }}">Profile</a></li>
+                            <li><a href="/edit-profile">Edit Profile</a></li>
+                        </ul>
+                    </li>
+                    @if( auth.user.is_admin == 2 )
+                        <li class="sub-menu">
+                            <a href="#"><div>Admin</div><span>Manage Your Site</span></a>
+                            <ul>
+                                <li><a href="/admin/categories">Categories</a></li>
+                                <li><a href="/admin/settings">Settings</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                    <li>
+                        <a href="/logout">
+                            <div>Logout</div>
+                            <span>Securely sign out</span>
+                        </a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="/login"><div>Login / Signup</div><span>Create an Account</span></a>
+                    </li>
+                    @endloggedIn
+                    
+                    
+                </ul>
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="/search" method="get">
+                        <input type="text" name="q" class="form-control" 
+                               placeholder="Type &amp; Hit Enter..">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
+
+        </div>
+
+    </div>
+
+</header><!-- #header end -->

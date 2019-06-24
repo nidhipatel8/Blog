@@ -1,0 +1,142 @@
+@layout( 'master' )
+
+@section( 'content' )
+<!-- Page Title
+============================================= -->
+<section id="page-title">
+        
+    <div class="container clearfix">
+        <h1>My Account</h1>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix" id="app">
+
+            <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+
+                {{ csrfField() }}
+
+                <ul class="tab-nav tab-nav2 center clearfix">
+                    <li class="inline-block"><a href="#tab-login">Login</a></li>
+                    <li class="inline-block"><a href="#tab-register">Register</a></li>
+                </ul>
+
+                <div class="tab-container">
+
+                    <div class="tab-content clearfix" id="tab-login">
+                        <div class="panel panel-default nobottommargin">
+                            <div class="panel-body" style="padding: 40px;">
+                                <form class="nobottommargin" 
+                                      @submit.prevent="login()">
+
+                                    <h3>Login to your Account</h3>
+
+                                    <div class="style-msg" 
+                                         :class="[login_alert_class]"
+                                         v-if="login_show_alert">
+                                        <div class="sb-msg">
+                                            @{{ login_alert_msg }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Username:</label>
+                                        <input type="text" class="form-control" 
+                                               :disabled="login_is_submitting"
+                                                v-model="user_login.username"/>
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Password:</label>
+                                        <input type="password" class="form-control" 
+                                               :disabled="login_is_submitting"
+                                                v-model="user_login.password"/>
+                                    </div>
+
+                                    <div class="col_full nobottommargin">
+                                        <button class="button button-3d button-black nomargin" 
+                                               :disabled="login_is_submitting">Login</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content clearfix" id="tab-register">
+                        <div class="panel panel-default nobottommargin">
+                            <div class="panel-body" style="padding: 40px;">
+                                <h3>Register for an Account</h3>
+
+                                    <div class="style-msg" 
+                                         :class="[reg_alert_class]"
+                                         v-if="reg_show_alert">
+                                        <div class="sb-msg">
+                                            @{{ reg_alert_msg }}
+                                        </div>
+                                    </div>
+
+                                <form class="nobottommargin" @submit.prevent="register()">
+                                    
+                                    <div class="col_full">
+                                        <label>Email Address:</label>
+                                        <input type="text" class="form-control"
+                                               v-model="user_reg.email" 
+                                               :disabled="reg_is_submitting"/>
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Choose a Username:</label>
+                                        <input type="text" class="form-control" 
+                                               v-model="user_reg.username" 
+                                               :disabled="reg_is_submitting"/>
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Choose Password:</label>
+                                        <input type="password" class="form-control"
+                                               v-model="user_reg.password" 
+                                               :disabled="reg_is_submitting" />
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Re-enter Password:</label>
+                                        <input type="password" class="form-control" 
+                                               v-model="user_reg.re_password" 
+                                               :disabled="reg_is_submitting"/>
+                                    </div>
+
+                                    <div class="col_full nobottommargin">
+                                        <button class="button button-3d button-black nomargin" 
+                                               :disabled="reg_is_submitting">Register Now</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line line-sm"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+@endsection
+
+@section( 'scripts' )
+    {{ script( 'https://unpkg.com/vue@2.3.3/dist/vue.js' ) }}
+    {{ script( 'js/auth.js' ) }}
+@endsection
