@@ -1,0 +1,23 @@
+<div class="entry clearfix">
+    <div class="entry-image">
+        <a href="{{ route( 'post', { id: post.id }) }}">
+            <img class="image_fade" src="{{ post.img_url }}">
+        </a>
+    </div>
+    <div class="entry-title">
+        <h2><a href="{{ route( 'post', { id: post.id }) }}">{{ post.title }}</a></h2>
+    </div>
+    <ul class="entry-meta clearfix">
+        <li><i class="icon-calendar3"></i> {{ format_date( post.created_at ) }}</li>
+        <li><a href="#"><i class="icon-folder-open"></i></a> <a href="{{ route( 'category', { id: post.cat.id } ) }}">{{ post.cat.name }}</a></li>
+        <li>
+            <a href=""><i class="icon-user"></i></a> 
+            <a href="{{ route( 'profile', { username: post.author.username }) }}">
+                {{ post.author.username }}
+            </a>
+        </li>
+    </ul>
+    <div class="entry-content">
+        <a href="{{ route( 'post', { id: post.id }) }}"class="more-link">Read More</a>
+    </div>
+</div>

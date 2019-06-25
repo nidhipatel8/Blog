@@ -1,0 +1,48 @@
+@layout( 'master' )
+
+@section( 'content' )
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            
+            <div class="heading-block center">
+                <h1>Update your profile</h1>
+                <span>Let people know more about you!</span>
+            </div>
+
+            <div class="style-msg" v-if="show_alert" :class="[alert_class]">
+                <div class="sb-msg">@{{ alert_msg }}</div>
+            </div>
+
+            <form @submit.prevent="submit()">
+                {{ csrfField() }}
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea class="form-control" rows="10"
+                                v-model="form.bio":disabled="is_submitting"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"
+                            :disabled="is_submitting">Update</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+@endsection
+
+@section( 'scripts' )
+    <script>
+        var bio                 =   "{{ user.bio || '' }}";
+    </script>
+
+    {{ script( 'https://unpkg.com/vue@2.4.4/dist/vue.js' ) }}
+    {{ script( 'js/edit-profile' ) }}
+@endsection

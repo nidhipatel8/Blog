@@ -1,0 +1,86 @@
+@layout( 'master' )
+
+@section( 'content' )
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            
+                <div class="heading-block center">
+                    <h1>Update Settings</h1>
+                </div>
+
+                @if( status === 2 )
+                    <div class="style-msg successmsg">
+                        <div class="sb-msg">
+                            Settings Updated!
+                        </div>
+                    </div>
+                @elseif( status === 1 )
+                <div class="style-msg errormsg">
+                    <div class="sb-msg">
+                        Something went wrong. Please try again.
+                    </div>
+                </div>
+                @endif
+                
+                
+
+                <form method="POST" action="/admin/settings">
+                    {{ csrfField() }}
+                    <div class="form-group">
+                        <label>Site Name</label>
+                        <input type="text" class="form-control" name="site_name"
+                               value="{{ settings.site_name }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Call to Action Message</label>
+                        <input type="text" class="form-control" name="cta_message"
+                               value="{{ settings.cta_message }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Call to Action URL</label>
+                        <input type="text" class="form-control" name="cta_url"
+                               value="{{ settings.cta_url }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Copyright Text</label>
+                        <input type="text" class="form-control" name="copyright_text"
+                               value="{{ settings.copyright_text }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Facebook Handle</label>
+                        <input type="text" class="form-control" name="facebook_handle"
+                               value="{{ settings.facebook_handle || '' }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Twitter Handle</label>
+                        <input type="text" class="form-control" name="twitter_handle"
+                               value="{{ settings.twitter_handle || '' }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Github Handle</label>
+                        <input type="text" class="form-control" name="github_handle"
+                               value="{{ settings.github_handle || '' }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+@endsection

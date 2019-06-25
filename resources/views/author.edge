@@ -1,0 +1,58 @@
+@layout( 'master' )
+
+@section( 'content' )
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <!-- Post Author Info
+            ============================================= -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span><a href="#">{{ user.username }}</a></span></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="author-image">
+                        <img src="{{ user.profile_img }}" class="img-circle">
+                    </div>
+
+                    {{ user.bio || '' }}
+                </div>
+            </div><!-- Post Single - Author End -->
+            
+            <h2>User Submissions</h2>
+
+            <!-- Posts
+            ============================================= -->
+            <div id="posts" class="post-grid grid-container grid-2 clearfix" data-layout="fitRows">
+
+                @each( post in posts.data )
+                    @include( 'partials/post-excerpt' )
+                @endeach
+
+            </div><!-- #posts end -->
+
+            <!-- Pagination
+            ============================================= -->
+            <ul class="pager nomargin">
+                @if( posts.page < posts.lastPage )
+                    <li class="previous">
+                        <a href="/?p={{ posts.page + 1 }}">&larr; Older</a>
+                    </li>
+                @endif
+                @if( posts.page > 1 )
+                    <li class="next">
+                        <a href="/?p={{ posts.page - 1 }}">Newer &rarr;</a>
+                    </li>
+                @endif
+            </ul><!-- .pager end -->
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+@endsection
