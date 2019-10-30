@@ -28,7 +28,7 @@
     "@adonisjs/session": "^1.0.28",
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/validator": "^5.0.6",
-    "knex": "^0.17.5",
+    "knex": "^0.20.1",
     "mysql2": "^1.6.5",
     "pug": "^2.0.3",
     "sanitize-html": "^1.20.1"
